@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function user(){
+	protected $fillable = ['status', 'total_price','phone','address','shipping_name','shipping_address','shipping_phone','name','user_id','voucher_code'];
+    public function user()
+    {
     	return $this->belongsTo('App\User');
     }
-    public function order_products(){
-    	return $this->hasMany('App\Order_Product');
+    public function orderProducts()
+    {
+    	return $this->hasMany('App\OrderProduct');
     }
 }

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Abuses extends Model
+class Return_Item extends Model
 {
-	protected $fillable = ['content', 'shop_id','shop_product_id'];
+	protected $fillable = ['shop_id', 'shop_product_id','content'];
     public function user()
     {
     	return $this->belongsTo('App\User');

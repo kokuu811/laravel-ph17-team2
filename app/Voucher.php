@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Voucher extends Model
 {
-    public function shop(){
+	protected $fillable = ['discount', 'shop_id','code','quantity'];
+    public function shop()
+    {
     	return $this->belongsTo('App\Shop');
     }
 }

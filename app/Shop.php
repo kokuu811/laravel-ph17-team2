@@ -6,16 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
-    public function user(){
+    protected $fillable = ['name', 'logo','address','description','user_id'];
+    public function user()
+    {
     	return $this->belongsTo('App\User');
     }
-    public function new_images(){
-    	return $this->hasMany('App\New_Image');
+    public function newImages()
+    {
+    	return $this->hasMany('App\NewImage');
     }
-    public function shop_products(){
-    	return $this->hasMany('App\Shop_Product');
+    public function shopProducts()
+    {
+    	return $this->hasMany('App\ShopProduct');
     }
-    public function vouchers(){
+    public function vouchers()
+    {
     	return $this->hasMany('App\Voucher');
     }
 }

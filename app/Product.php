@@ -6,19 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function category(){
+    protected $fillable = ['buys', 'name','description','images','view','price','category_id','alias'];
+    public function category()
+    {
     	return $this->belongsTo('App\Category');
     }
-    public function shop_products(){
-    	return $this->hasMany('App\Shop_Product');
+    public function shopProducts()
+    {
+    	return $this->hasMany('App\ShopProduct');
     }
-    public function wishlist_items(){
-    	return $this->hasMany('App\Wishlist_Item');
+    public function wishlistItems()
+    {
+    	return $this->hasMany('App\WishlistItem');
     }
-    public function product_attribute_values(){
-    	return $this->hasMany('App\Product_Attribute_Value');
+    public function productAttributeValues()
+    {
+    	return $this->hasMany('App\ProductAttributeValue');
     }
-     public function product_images(){
-    	return $this->hasMany('App\Product_Image');
+     public function productImages()
+    {
+    	return $this->hasMany('App\ProductImage');
     }
 }
